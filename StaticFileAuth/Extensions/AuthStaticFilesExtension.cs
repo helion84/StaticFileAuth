@@ -58,7 +58,8 @@ namespace StaticFileAuth.Extensions
                         ctx.Context.Response.Cookies.Append(KeyName, key, new CookieOptions
                         {
                             SameSite = SameSiteMode.None,
-                            Secure = true
+                            Secure = true,
+                            HttpOnly = true
                         });
                     }
                     else if (!ctx.Context.Request.Cookies.ContainsKey(KeyName) || !_keyCache.IsValid(ctx.Context.Request.Cookies[KeyName]))
